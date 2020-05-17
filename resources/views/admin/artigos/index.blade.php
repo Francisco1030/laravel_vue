@@ -7,6 +7,7 @@
             v-bind:titulos="['#','Titulo', 'Descrição']"
             v-bind:itens="[[1,'PHP OO', 'Curso de PHP'], [2,'VUE OO', 'Curso de VUE']]"
             criar="#criar" editar="#editar" detalhe="#detalhe" token="dds"
+            ordem="desc" ordemCol="0"
             >
             
         </tabela-lista>
