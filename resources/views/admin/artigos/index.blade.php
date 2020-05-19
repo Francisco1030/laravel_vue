@@ -3,6 +3,10 @@
 @section('content')
 <pagina tamanho="10">
     <painel titulo="Lista de artigos">
+        <modal-link 
+            tipo="link" titulo="Modal Novo"
+            nome="meumodal"
+        ></modal-link>
         <migalhas v-bind:lista="{{$listaMigalhas}}"></migalhas>
         <tabela-lista 
             v-bind:titulos="['#','Titulo', 'Descrição']"
@@ -14,5 +18,6 @@
         </tabela-lista>
     </painel>
 </pagina>
+<modal nome="meumodal"></modal>
 
 @endsection
