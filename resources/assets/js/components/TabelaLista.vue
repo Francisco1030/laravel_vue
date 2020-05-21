@@ -108,26 +108,27 @@ export default {
 
       if (ordem == "asc") {
         this.itens.sort(function(a, b) {
-          if (a[ordemCol] > b[ordemCol]) {
+          if (Object.values(a)[ordemCol] > Object.values(b)[ordemCol]) {
             return 1;
           }
-          if (a[ordemCol] < b[ordemCol]) {
+          if (Object.values(a)[ordemCol] < Object.values(b)[ordemCol]) {
             return -1;
           }
           return 0;
         });
       } else {
         this.itens.sort(function(a, b) {
-          if (a[ordemCol] < b[ordemCol]) {
+          if (Object.values(a)[ordemCol] < Object.values(b)[ordemCol]) {
             return 1;
           }
-          if (a[ordemCol] > b[ordemCol]) {
+          if (Object.values(a)[ordemCol] > Object.values(b)[ordemCol]) {
             return -1;
           }
           return 0;
         });
       }
 
+  if(this.buscar){
       return this.itens.filter((res) => {
         for (let k = 0; k < res.length; k++) {
           if (
@@ -138,6 +139,7 @@ export default {
         }
         return false;
       });
+  }
       return this.itens;
     },
   },
