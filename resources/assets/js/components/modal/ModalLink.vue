@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <span>
     <button
       v-if="!tipo || (tipo != 'button' && tipo != 'link')"
       type="button"
@@ -23,13 +23,13 @@
     <a
       v-if="tipo == 'link'"
       href="#"
-      v-bind:class="css || 'btn btn-danger'"
+      v-bind:class="css || ''"
       data-toggle="modal"
       v-bind:data-target="'#' + nome"
     >
       {{ titulo }}
     </a>
-  </div>
+  </span>
 </template>
 
 <script>

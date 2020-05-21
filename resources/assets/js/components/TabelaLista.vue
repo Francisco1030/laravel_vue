@@ -1,6 +1,12 @@
 <template>
   <div class="">
-    <a v-if="criar" v-bind:href="criar">Criar</a>
+    <a v-if="criar && !modal" v-bind:href="criar">Criar</a>
+
+    <modal-link
+            v-if="criar && modal" 
+            tipo="link" titulo="Criar"
+            nome="adicionar"
+        ></modal-link>
 
     <form class="navbar-form navbar-right">
       <div class="form-group">
@@ -43,20 +49,32 @@
               <input type="hidden" name="_token" v-bind:value="token" />
 
               <a v-if="detalhe" v-bind:href="detalhe">Detalhe |</a>
-              <a v-if="editar" v-bind:href="editar"> Editar |</a>
+              <a v-if="editar && !modal"  v-bind:href="editar"> Editar |</a>
+              <modal-link
+                v-if="editar && modal" 
+                tipo="link" titulo="Editar |"
+                nome="editar"></modal-link>
 
               <a href="#" v-on:click="executaForm(index)"> Deletar</a>
             </form>
 
             <span v-if="!token">
               <a v-if="detalhe" v-bind:href="detalhe">Detalhe |</a>
-              <a v-if="editar" v-bind:href="editar"> Editar |</a>
+              <a v-if="editar && !modal"  v-bind:href="editar"> Editar |</a>
+              <modal-link
+                v-if="editar && modal" 
+                tipo="link" titulo="Editar |"
+                nome="editar"></modal-link>
               <a v-if="deletar" v-bind:href="deletar"> Deletar</a>
             </span>
 
             <span v-if="token && !deletar">
               <a v-if="detalhe" v-bind:href="detalhe">Detalhe |</a>
-              <a v-if="editar" v-bind:href="editar"> Editar</a>
+              <a v-if="editar && !modal"  v-bind:href="editar"> Editar</a>
+              <modal-link
+                v-if="editar && modal" 
+                tipo="link" titulo="Editar"
+                nome="editar"></modal-link>
             </span>
           </td>
         </tr>
@@ -77,6 +95,7 @@ export default {
     "token",
     "ordem",
     "ordemCol",
+    "modal"
   ],
   data: function() {
     return {
